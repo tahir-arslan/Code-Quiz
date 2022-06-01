@@ -78,7 +78,7 @@ header {
     cursor: pointer;
 }
 
-.result {
+.result-screen {
     border-top: 3px solid rgb(173, 173, 173);
     color:rgb(173, 173, 173);
     padding-top: 15px;
