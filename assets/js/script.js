@@ -85,8 +85,15 @@ var getNewQuestion = function () {
 };
 
 // get result of current attempt
-var getResult = function (optionElement) {
-    console.log(optionElement.id)
+var getResult = function (element) {
+    var id = parseInt(element.id);
+    console.log(element.id);
+    // get answer by comparing id of clicked option
+    if(id === currentQuestion.answer) {
+        element.classList.add("correct");
+    } else {
+        console.log("answer is wrong");
+    }
 }
 
 var next = function () {
