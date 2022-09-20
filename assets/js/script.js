@@ -13,15 +13,34 @@ var resultsScreen = document.getElementById("result-container");
 var questionDisplayEl = document.getElementById("question-container");
 var choiceDisplayEl = document.getElementById("choice-container");
 
+// define timer elements
+var timerEl = document.getElementById("timer");
+
+// preset variables
 let questionCount = 0;
 let choiceCount = 1;
+let timer = 10;
 
 var startQuizHandler = function() {
     // change screens
     introScreen.style.display = "none";
     questionsScreen.style.display = "block";
-    // display question and choices
+    // begin timer, load questions
+    startCountdown();
     questionDisplayHandler();
+};
+
+// timer countdown
+var startCountdown = function () {
+    setInterval(function() {
+        timer --;
+        timerEl.innerHTML = "Time Remaining: " + timer + "s";
+        if (timer < 0) {
+            // if timer = 0, end quiz and go directly to the results screen
+            timerEl.innerHTML = "Time's Up!"
+            return clearInterval(startCountdown);
+        }
+    }, 1000);
 }
 
 var questionDisplayHandler = function() {
@@ -37,9 +56,8 @@ var questionDisplayHandler = function() {
         choice.innerHTML = key + ": " + value;
         choiceDisplayEl.appendChild(choice);
         choiceCount ++;
-        console.log(choice);
     }
-}
+};
 
 // validate choice selection
 choiceDisplayEl.onclick = function(event) {
@@ -52,15 +70,14 @@ choiceDisplayEl.onclick = function(event) {
         event.target.classList.add("choice-right");
         // choiceId..querySelector('[choiceId='choiceCount']').className = "choice-right";
         choiceDisplayEl.style.pointerEvents = "none";
-        console.log("good stuff")
     }
     else {
-        // if wrong, highlight wrong option red
+        // if wrong, highlight wrong option red and reduce time by 10
         event.target.classList.add("choice-wrong");
-        console.log("clicked a choice " + getChoiceId);
-        console.log(questionsListArr[questionCount].answer);
+        timer = timer - 10;
+        timerEl.innerHTML = "Time Remaining: " + timer + "s";
     }
-}
+};
 
 // listen to button click for next question
 nextBtnEl.onclick = function() {
@@ -76,18 +93,19 @@ nextBtnEl.onclick = function() {
     else {
         questionDisplayHandler(questionCount);
     }
-}
+};
 
 var resultsDisplayHandler = function() {
     questionsScreen.style.display = "none";
     resultsScreen.style.display = "block";
     console.log("quiz is complete");
-}
+};
 
 window.onload = function() {
     let introTextEl = document.querySelector("#instructions");
     console.log(introTextEl);
     introTextEl.innerHTML = "There are " + questionsListArr.length + " questions in total. Try to answer the following code-related questions within the time limit. Are you up for the challenge? <br /> (Keep in mind that incorrect answers will penalize your time by ten seconds!)"
-}
+    timerEl.innerHTML = "Time Remaining: " + timer + "s";
+};
 
 startQuizEl.addEventListener("click", startQuizHandler);

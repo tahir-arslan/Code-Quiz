@@ -48,6 +48,7 @@ header {
 
 .timer-text {
     padding: 10px;
+    align-self: left;
 }
 
 /* quiz elements */
