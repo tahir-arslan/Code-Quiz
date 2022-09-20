@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,37 @@
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <header>
         <button class="score-btn" id="view-score">View high scores</button>
         <div class="timer-text" id="timer">Time Remaining: 5</div>
     </header>
+
     <section class="quiz-container" id="quiz">
+
         <div id="intro-screen">
             <h1 class="intro-text">Coding Quiz Challenge</h1>
-            <p class="intro-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <p class="intro-text" id="instructions"></p>
             <button class="btn" id="start-btn">Start Quiz</button>
         </div>
+
         <div class="question-screen" id="display-questions">
-            <div id="question"></div>
-            <div id="choice-container"></div>
-            <div class="next-question">
-                <button type="button" class="btn" onclick="next()">Next</button>
+            <div id="question-container"></div>
+            <div id="center-div">
+                <ul id="choice-container"></ul>
+            </div>
+            <div class="question-scroll">
+                <button type="button" class="btn" id="next-btn">Next</button>
             </div>
         </div>
+
         <div class="result-screen" id="result-container">
+            <h2>Results</h2>
         </div>
     </section>
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/questions.js"></script>
 </body>
+
 </html>
