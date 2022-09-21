@@ -109,14 +109,82 @@ li {
     cursor: pointer;
 }
 
+/* results elements */
+.saved-data {
+    width: 100%;
+    border-top: 3px solid rgb(94, 94, 94);
+    padding-top: 6px;
+}
+
+.saved-data p {
+    color: white;
+    border-radius: 8px;
+    background-color:rgba(37, 103, 134, 0.767);
+    margin: 4px 10px 8px 10px;
+    padding: 6px 10px;
+}
+
+.input-data{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+input{
+    caret-color: auto;
+    width: 100%;
+    color: black;
+    border: 1px solid rgba(37, 103, 134, 0.767);
+    border-radius: 8px 0px 0px 8px;
+    background-color:rgba(255, 255, 255, 0.767);
+    margin: 4px 0px;
+    padding: 8px 10px;
+}
+
+.save-data-btn{
+    background-color: rgba(37, 103, 134, 0.767);
+    border: none;
+    border-radius: 0px 8px 8px 0px;
+    color: white;
+    margin: 4px 0px;
+    padding: 8px 10px;
+    font-size: 105%;
+}
+
+.save-data-btn:hover{
+    background-color: rgba(77, 152, 187, 0.767);
+}
+
+.reset-btns{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+#restart-quiz-btn, 
+#delete-data-btn{
+    flex: auto;
+    flex-grow: 1;
+    width: 100%;
+}
+
+#delete-data-btn:hover{
+    background-color: rgb(131, 45, 45);
+}
+
+.deleted-data{
+    font-size: 105%;
+    text-align: center;
+}
+
 /* screens */
 .question-screen {
     display: none;
 }
 
 .result-screen {
-    border-top: 3px solid rgb(173, 173, 173);
-    color: rgb(173, 173, 173);
+    border-top: 3px solid rgb(94, 94, 94);
+    color: rgb(94, 94, 94);
     padding-top: 15px;
     display: none;
 }
