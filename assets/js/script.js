@@ -9,6 +9,7 @@ var mainScreenBtnEl = document.getElementById("main-screen-btn");
 var introScreen = document.getElementById("intro-screen");
 var questionsScreen = document.getElementById("display-questions");
 var resultsScreen = document.getElementById("result-container");
+var scoreDisplayHandler = document.getElementById("score-display");
 
 // define containers to hold questions and choices
 var questionDisplayEl = document.getElementById("question-container");
@@ -31,7 +32,8 @@ var timerEl = document.getElementById("timer");
 let questionCount = 0;
 let choiceCount = 1;
 var timerCountdown;
-let timer = 60;
+let timer;
+let timePerQuestion = 10;
 var totalCorrect = 0;
 let score = 0;
 
@@ -139,6 +141,7 @@ var calculateScore = function() {
 var resultsDisplayHandler = function() {
     questionsScreen.style.display = "none";
     resultsScreen.style.display = "block";
+    scoreDisplayHandler.innerText = "Results: " + score + " points";
     if (!savedScoresArr) {
         savedScoresArr = [];
     }
@@ -200,6 +203,10 @@ var refreshPage = function() {
 window.onload = function() {
     let introTextEl = document.querySelector("#instructions");
     introTextEl.innerHTML = "There are " + questionsListArr.length + " questions in total. Try to answer the following code-related questions within the time limit. Are you up for the challenge? <br /> (Keep in mind that incorrect answers will penalize your time by ten seconds!)"
+    
+    // update timer based on number of questions. default set to 10 seconds per question
+    let totalQuestions = questionsListArr.length;
+    timer = totalQuestions * timePerQuestion;
     timerEl.innerHTML = "Time Remaining: " + timer + "s";
 };
 

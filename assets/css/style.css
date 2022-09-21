@@ -28,7 +28,9 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    margin-bottom: 20px;
     font-size: 105%;
+    background-color:rgb(219, 235, 243);
 }
 
 .score-btn {
@@ -193,9 +195,6 @@ input{
 @media screen and (max-width: 768px) {
     .quiz-container {
         width: 95%;
-    }
-    .btn {
-        width: 100%;
     }
     .result {
         width: 100%;
