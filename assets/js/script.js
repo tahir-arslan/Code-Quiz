@@ -31,7 +31,7 @@ var timerEl = document.getElementById("timer");
 let questionCount = 0;
 let choiceCount = 1;
 var timerCountdown;
-let timer = 90;
+let timer = 60;
 var totalCorrect = 0;
 let score = 0;
 
@@ -62,6 +62,7 @@ var startCountdown = function () {
             timer = 0;
             timerEl.innerHTML = "Time's Up!"
             clearInterval(timerCountdown);
+            calculateScore();
             return;
         }
     }, 1000);
@@ -69,7 +70,7 @@ var startCountdown = function () {
 
 var questionDisplayHandler = function() {
     // display question one at a time
-    questionDisplayEl.textContent = questionsListArr[questionCount].q;
+    questionDisplayEl.textContent = (questionCount + 1) + ". " + questionsListArr[questionCount].q;
 
     // display all options for current question
     for (const [key, value] of Object.entries(questionsListArr[questionCount].options)) {
