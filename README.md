@@ -8,6 +8,8 @@ A score is calculated based on the remaining time and the amount of questions th
 
 Upon selecting an option, the option will be highlighted green or red depending on if it is or is not correct. If the selection is wrong, the option will become unclickable to avoid multiple selections of the same option and unnecessary deduction of time. If the selection is correct, all options will be rendered unclickable. 
 
+Here is the link to the [deployed page](https://tahir-arslan.github.io/Code-Quiz/).
+
 ### Reflection
 The goal of this project was to learn advanced JavaScript, how it can interact with the DOM, HTML, and the style sheet. 
 
